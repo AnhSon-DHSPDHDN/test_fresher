@@ -1,0 +1,16 @@
+.sidebar{
+  &__list{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: rgb(153, 209, 88);
+    border-radius: 4px;
+    margin: 5px 0;
+    transition-duration: 0.5s;
+    &:hover{
+      background-color: rgb(50, 146, 5);
+      cursor: pointer;
+    }
+  }
+}

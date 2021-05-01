@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import './App.scss';
+import router from './routers/router';
 
 function App() {
+  const mapRoute = (routers) => {
+    if (routers) {
+      return routers.map((router, index) => {
+        return <Route
+          key={index}
+          path={router?.path}
+          component={router?.component}
+          exact={router?.exact}
+        ></Route>
+      })
+    } else return;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Suspense fallback={
+        <div className="loading">
+          loading...
+        </div>
+      }>
+        <Switch>
+          {mapRoute(router)}
+          <Redirect from='/' to='/home' />
+        </Switch>
+      </Suspense>
+    </Router>
   );
 }
 

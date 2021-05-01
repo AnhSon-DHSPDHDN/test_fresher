@@ -1,0 +1,31 @@
+.home{
+  &__navbar{
+    width: 100%;
+    background-color: rgb(56, 54, 54);
+    height: 40px;
+    text-align: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    h2{
+      display: inline;
+      padding: 0;
+      margin: 0;
+    }
+    button{
+      background-color: white;
+      border: 2px solid rgb(180, 23, 23);
+      color: rgb(180, 23, 23);
+      transition-duration: 0.5s;
+      cursor: pointer;
+      &:hover{
+        background-color: blue;
+        color: white;
+        background-color: rgb(180, 23, 23);
+      }
+    }
+  }
+}

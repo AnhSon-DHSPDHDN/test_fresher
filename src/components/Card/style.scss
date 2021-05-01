@@ -1,0 +1,16 @@
+.card{
+  margin-bottom: 10px;
+  width: 200px;
+  height: 400px;
+  transition: box-shadow .3s;
+  border: 1px solid #ccc;
+  img{
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+  } 
+  &:hover{
+    box-shadow: 0 0 11px rgb(94, 86, 73);
+    cursor: pointer;
+  }
+}
