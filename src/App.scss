@@ -16,9 +16,11 @@ body{
   .sidebar{
     width: 20%;
     height: 200px;
+    position: fixed;
   }
   .mainhome{
     text-align: center;
+    margin-left: 30%;
     width: 80%;
     height: 200px;
     padding-left: 20px;

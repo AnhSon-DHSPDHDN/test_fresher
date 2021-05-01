@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useReducer } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -8,7 +8,14 @@ import {
 import './App.scss';
 import router from './routers/router';
 
+import { AnimalsContext } from './contexts/contexts'
+import { animailsReducer } from './contexts/reducers/animalsReducer'
+
 function App() {
+  const [animalsState, animalsDispatch] = useReducer(animailsReducer, {
+    isLoading: true
+  });
+
   const mapRoute = (routers) => {
     if (routers) {
       return routers.map((router, index) => {
@@ -22,18 +29,22 @@ function App() {
     } else return;
   }
   return (
-    <Router>
-      <Suspense fallback={
-        <div className="loading">
-          loading...
+    <AnimalsContext.Provider
+      value={{ data: animalsState, dispatch: animalsDispatch }}
+    >
+      <Router>
+        <Suspense fallback={
+          <div className="loading">
+            loading...
         </div>
-      }>
-        <Switch>
-          {mapRoute(router)}
-          <Redirect from='/' to='/home' />
-        </Switch>
-      </Suspense>
-    </Router>
+        }>
+          <Switch>
+            {mapRoute(router)}
+            <Redirect from='/' to='/home' />
+          </Switch>
+        </Suspense>
+      </Router>
+    </AnimalsContext.Provider>
   );
 }
 

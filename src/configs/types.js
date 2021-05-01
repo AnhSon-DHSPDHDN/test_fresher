@@ -1,0 +1,5 @@
+export const TypesContextAnimals = {
+  GET_ALL_ANIMALS: 'GET_ALL_ANIMALS',
+  GET_ALL_DOGS: 'GET_ALL_DOGS',
+  SET_LOADING: 'SET_LOADING'
+}

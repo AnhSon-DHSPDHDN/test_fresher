@@ -13,4 +13,9 @@
     box-shadow: 0 0 11px rgb(94, 86, 73);
     cursor: pointer;
   }
+  p{
+    height: 150px;
+    margin: 0;
+    text-overflow: ellipsis;
+  }
 }
